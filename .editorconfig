@@ -1,0 +1,30 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.{js,jsx,cjs}]
+indent_size = 2
+semi = false
+
+[docker-compose.yml]
+indent_size = 4
+
+
+# Prettier configuration
+[*.{js,jsx,json,ts,tsx,html,xml,yml,yaml}]
+quote_type = single
+semi = false
+single_quote = true
+trailing_comma = all
