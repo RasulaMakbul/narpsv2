@@ -196,7 +196,7 @@ export const ContextProvider = ({ children }) => {
     imageUrl:
       'https://media.licdn.com/dms/image/C5603AQG3i8TGv1pwig/profile-displayphoto-shrink_400_400/0/1661261843368?e=1703116800&v=beta&t=Jt6w45UCd7UH4wqTfLEAqam27M8DQAo1pD0Yrtyouek',
   });
-  const [userToken, setUserToken] = useState('1234');
+  const [userToken, setUserToken] = useState('');
   const [surveys] = useState(tmpSurveys);
 
   return (
