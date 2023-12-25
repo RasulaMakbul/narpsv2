@@ -1,7 +1,34 @@
 import { BeakerIcon } from '@heroicons/react/24/solid';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axiosClient from '../axios';
 
 export default function Signup() {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [password_conirmation, set_password_conirmation] = useState('');
+  const [error, setError] = useState({ __html: '' });
+
+  const onSubmit = (ev) => {
+    ev.preventDefault();
+    setError({ __html: '' });
+
+    axiosClient
+      .post('./signup', {
+        name: fullName,
+        email: email,
+        password: password,
+        password_conirmation: password_conirmation,
+      })
+      .than(({ data }) => {
+        console.log(data);
+      })
+      .catch(({ response }) => {
+        console.log(response);
+      });
+  };
+
   return (
     <>
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-blue-900">
@@ -9,7 +36,12 @@ export default function Signup() {
       </h2>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
+        <form
+          onSubmit={onSubmit}
+          className="space-y-6"
+          action="#"
+          method="POST"
+        >
           <div>
             <label
               htmlFor="name"
